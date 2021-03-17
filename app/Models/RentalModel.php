@@ -190,7 +190,7 @@ echo $sql;
 		 exit();
 	}
 
-
+  // https://github.com/AhmadFaridHamzah/ci4
 
     function getajaxrental(){
 
@@ -199,10 +199,11 @@ echo $sql;
         $start = intval($request->getGet("start"));
         $length = intval($request->getGet("length"));
         $columns = ($request->getGet("columns"));
+        $search = ($request->getGet("search"));
 
-        echo '<pre>';
-        print_r($_GET);
-        echo '</pre>';
+        // echo '<pre>';
+        // print_r($_GET);
+        // echo '</pre>';
 
         $datamu=  $this
         ->select('f.title,c.first_name as customer_name,
@@ -212,6 +213,17 @@ echo $sql;
         ->join('customer c','c.customer_id=rental.customer_id')
         ->join('staff s','s.staff_id=rental.staff_id');
 
+
+        foreach($columns as $rcol){
+
+          if(!empty($search['value'])){
+           
+            if(!empty($rcol['name'])){
+            $datamu->orLike($rcol['name'],$search['value'],'both');
+            }//end of !empty($rcol['name']
+         
+          }//end of if empty($search['value']
+        } //end of foreach columns
 
 
         $datamu->limit($length,$start);
