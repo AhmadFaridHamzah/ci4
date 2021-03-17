@@ -198,6 +198,11 @@ echo $sql;
         $draw = intval($request->getGet("draw"));
         $start = intval($request->getGet("start"));
         $length = intval($request->getGet("length"));
+        $columns = ($request->getGet("columns"));
+
+        echo '<pre>';
+        print_r($_GET);
+        echo '</pre>';
 
         $datamu=  $this
         ->select('f.title,c.first_name as customer_name,
@@ -205,15 +210,18 @@ echo $sql;
         ->join('inventory i','i.inventory_id=rental.inventory_id')
         ->join('film f','f.film_id=i.film_id')
         ->join('customer c','c.customer_id=rental.customer_id')
-        ->join('staff s','s.staff_id=rental.staff_id')
-        ->limit($length,$start)
+        ->join('staff s','s.staff_id=rental.staff_id');
+
+
+
+        $datamu->limit($length,$start);
 		
        
-        ->asObject()->find();
+       $datamu2= $datamu->asObject()->find();
 
          $data=array();
       
-         foreach($datamu as $row){
+         foreach($datamu2 as $row){
 
             $btn="<a href='".site_url('film/detailrentail')."'>view</a>";
          

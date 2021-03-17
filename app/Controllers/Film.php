@@ -99,4 +99,18 @@ class Film extends BaseController
     }
 
 
+    public function detailrentail(){
+
+        $datasession=['keepsearch'=>1];
+        
+        $this->session->set($datasession);
+
+        $output['content'] = view('detailrentail');
+
+        return view('main',$output);
+
+
+    }
+
+
 }
