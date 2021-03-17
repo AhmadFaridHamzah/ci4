@@ -48,5 +48,7 @@ class BaseController extends Controller
 		$this->name = "Ahmad Farid";
 		$this->db = \Config\Database::connect();
 		// $this->title = "";
+		helper('datatable');
+		
 	}
 }

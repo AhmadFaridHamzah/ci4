@@ -206,19 +206,24 @@ echo $sql;
         ->join('film f','f.film_id=i.film_id')
         ->join('customer c','c.customer_id=rental.customer_id')
         ->join('staff s','s.staff_id=rental.staff_id')
-        ->limit($length,$start )
+        ->limit($length,$start)
 		
        
         ->asObject()->find();
 
          $data=array();
-
+      
          foreach($datamu as $row){
 
+            $btn="<a href='".site_url('film/detailrentail')."'>view</a>";
+         
             $data[]=array(
+              generateBil($start),
                 $row->title,
                 $row->customer_name,
                 $row->staff_name,
+                $btn
+
             );
 
          }

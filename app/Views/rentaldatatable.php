@@ -15,18 +15,20 @@ $(document).ready(function() {
 <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
+                <th>NO</th>
                 <th>Title</th>
                 <th>customer name</th>
                 <th>staff name</th>
-               
+                <th>action</th>
             </tr>
         </thead>
         <tfoot>
             <tr>
+                <th>NO</th>
                 <th>Title</th>
                 <th>customer name</th>
                 <th>staff name</th>
-                
+                <th>action</th>
             </tr>
         </tfoot>
     </table>
