@@ -200,6 +200,7 @@ echo $sql;
         $length = intval($request->getGet("length"));
         $columns = ($request->getGet("columns"));
         $search = ($request->getGet("search"));
+        $order = ($request->getGet("order"));
 
         // echo '<pre>';
         // print_r($_GET);
@@ -224,6 +225,25 @@ echo $sql;
          
           }//end of if empty($search['value']
         } //end of foreach columns
+
+
+        $countresult=$datamu->countAllResults(false);
+        // orderby
+
+        if($order[0]['dir']){
+
+          $nocolumn=$order[0]['column'];
+
+          $namecolumn=$columns[$nocolumn]['name'];
+
+          $datamu->orderBy($namecolumn,$order[0]['dir']);
+
+
+        }
+
+
+        //end of orderby
+
 
 
         $datamu->limit($length,$start);
@@ -253,7 +273,7 @@ echo $sql;
 
             "draw" => $draw,
                "recordsTotal" =>  $this->countAll(),
-               "recordsFiltered" =>  $this->countAll(),
+               "recordsFiltered" =>   $countresult,
                "data" => $data
 
          ];
