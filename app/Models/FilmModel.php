@@ -109,6 +109,14 @@ class FilmModel extends Model
 
           $btn .= "<a href='".site_url('film-management/edit/'.$row->film_id)."' class='btn btn-info'>Update</a>"; 
        
+          $btn .= form_open('film-management/delete/'.$row->film_id);
+          $btn .= form_hidden('_method','DELETE');
+          $btn .= form_submit('btn_submit','Delete',['class'=>'btn btn-danger','onclick'=>'return confirm("Are you sure?")']);
+          $btn .= form_close();
+
+
+
+
           $data[]=array(
             generateBil($start),
               $row->title,
