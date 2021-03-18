@@ -30,9 +30,18 @@ echo form_open('film-management/store',['class'=>'form-control']);
     <div class="col-sm-10">
         <?php
             $old = old('description');
+            $valid = isset($validation['description'])? "is-invalid" : "";
 
-            echo form_textarea('description',"$old",['class'=>'form-control','placeholder'=>'Insert description']);
+            echo form_textarea('description',"$old",['class'=>"form-control $valid",'placeholder'=>'Insert description']);
         ?>
+
+        <?php if(isset($validation['description'])) { ?>
+
+        <div class="invalid-feedback d-block">
+            <?= $validation['description'] ?>
+        </div>
+
+        <?php } ?>
     </div>
   </div>
 
@@ -43,9 +52,18 @@ echo form_open('film-management/store',['class'=>'form-control']);
     <div class="col-sm-10">
         <?php
             $old = old('release_year');
+            $valid = isset($validation['release_year'])? "is-invalid" : "";
 
-            echo form_input('release_year',"$old",['class'=>'form-control','placeholder'=>'Insert Release Year'],'number');
+            echo form_input('release_year',"$old",['class'=>"form-control $valid",'placeholder'=>'Insert Release Year'],'number');
         ?>
+
+        <?php if(isset($validation['release_year'])) { ?>
+
+        <div class="invalid-feedback d-block">
+            <?= $validation['release_year'] ?>
+        </div>
+
+        <?php } ?>
     </div>
   </div>
 
