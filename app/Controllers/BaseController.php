@@ -49,6 +49,8 @@ class BaseController extends Controller
 		$this->db = \Config\Database::connect();
 		// $this->title = "";
 		helper('datatable');
+		helper('form');
+		helper('bank_status');
 
 	}
 }

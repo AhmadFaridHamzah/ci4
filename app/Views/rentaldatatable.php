@@ -29,7 +29,7 @@ var table=$('#example').DataTable();
         "ajax": "<?=$rentalajax?>",
         columnDefs: [
             
-         { targets:0, orderable:false},    
+        { targets:0, orderable:false},    
         { targets:1, name:'f.title'},
         { targets:2, name:'c.first_name' },
         { targets:3, name:'s.first_name' },

@@ -54,6 +54,9 @@ $routes->group('user',function($routes){
 
 $routes->get('message/(:any)/(:any)','Home::message/$1/$2');
 
+
+$routes->get('film-management','FilmManagement::index');
+$routes->get('film-management/create','FilmManagement::create');
 //(:any)- semua value terima
 //(:num) - nombor sahaja
 //(:alpha) - alphabet sahaja

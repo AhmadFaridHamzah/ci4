@@ -240,8 +240,6 @@ echo $sql;
 
 
         }
-
-
         //end of orderby
 
 

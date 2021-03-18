@@ -41,7 +41,7 @@ echo form_open('film-management/store',['class'=>'form-control']);
     ?>
     <div class="col-sm-10">
         <?php
-            echo form_dropdown('language_id','','',['class'=>'form-control','placeholder'=>'Insert Language']);
+            echo form_dropdown('language_id',$language,'',['class'=>'form-control','placeholder'=>'Insert Language']);
         ?>
     </div>
   </div>
