@@ -7,9 +7,9 @@ echo form_open('film-management/store',['class'=>'form-control']);
     ?>
     <div class="col-sm-10">
       <?php
-        $old = old('title');
+        $value = $film['title'];
         $valid = isset($validation['title'])? "is-invalid" : "";
-        echo form_input('title',"$old",['class'=>"form-control $valid",'placeholder'=>'Insert title']);
+        echo form_input('title',"$value",['class'=>"form-control $valid",'placeholder'=>'Insert title']);
       ?>
 
       <?php if(isset($validation['title'])) { ?>
@@ -29,10 +29,10 @@ echo form_open('film-management/store',['class'=>'form-control']);
     ?>
     <div class="col-sm-10">
         <?php
-            $old = old('description');
+            $value = $film['description'];
             $valid = isset($validation['description'])? "is-invalid" : "";
 
-            echo form_textarea('description',"$old",['class'=>"form-control $valid",'placeholder'=>'Insert description']);
+            echo form_textarea('description',"$value",['class'=>"form-control $valid",'placeholder'=>'Insert description']);
         ?>
 
         <?php if(isset($validation['description'])) { ?>
@@ -51,10 +51,10 @@ echo form_open('film-management/store',['class'=>'form-control']);
     ?>
     <div class="col-sm-10">
         <?php
-            $old = old('release_year');
+            $value = $film['release_year'];
             $valid = isset($validation['release_year'])? "is-invalid" : "";
 
-            echo form_input('release_year',"$old",['class'=>"form-control $valid",'placeholder'=>'Insert Release Year'],'number');
+            echo form_input('release_year',"$value",['class'=>"form-control $valid",'placeholder'=>'Insert Release Year'],'number');
         ?>
 
         <?php if(isset($validation['release_year'])) { ?>

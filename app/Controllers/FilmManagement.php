@@ -56,9 +56,14 @@ class FilmManagement extends BaseController{
     }
 
     public function edit($id){
+
+        $model = new FilmModel();
+        $film = $model->find($id);
+
         $data['language'] = get_language();
         $data['rating'] = get_rating();
         $data['validation'] = session('validation');
+        $data['film'] = $film;
 
         $output['content'] = view('film-management/edit',$data);
         return view('main',$output);
