@@ -106,6 +106,8 @@ class FilmModel extends Model
        foreach($datamu2 as $row){
 
           $btn="<a href='".site_url('film/detailrentail')."'>view</a>";
+
+          $btn .= "<a href='".site_url('film-management/edit/'.$row->film_id)."' class='btn btn-info'>Update</a>"; 
        
           $data[]=array(
             generateBil($start),
