@@ -25,6 +25,10 @@ class FilmManagement extends BaseController{
         $output['content'] = view('film-management/create',$data);
         return view('main',$output);
     }
+
+    public function store(){
+        dd($_POST);
+    }
 }
 
 ?>
