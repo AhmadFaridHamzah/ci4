@@ -35,7 +35,20 @@ class FilmManagement extends BaseController{
 
             $validation = $films->createFilms($this->request->getPost());
 
-            dd($validation);
+            if(!empty($validation)){
+                //berjaya
+
+                session()->setFlashdata('message','Added Succesfully');
+                session()->setFlashdata('alert-class','alert-success');
+
+                return redirect()->route('film-management');
+
+            }else{
+                //x berjaya
+
+            }
+
+            // dd($validation);
         }
     }
 }

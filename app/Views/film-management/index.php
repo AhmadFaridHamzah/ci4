@@ -41,6 +41,21 @@ var table=$('#example').DataTable();
 } );
 </script>
 
+<?php
+    if(session()->has('message')){
+    ?>
+
+    <div class="alert <?= session()->getFlashdata('alert-class'); ?>">
+        <?= session()->getFlashdata('message'); ?>
+    </div>
+
+
+<?php
+    }
+?>
+
+
+
 <a class="btn btn-success" href="<?= site_url('film-management/create') ?>" role="button">Create</a>
 <br><br>
 
