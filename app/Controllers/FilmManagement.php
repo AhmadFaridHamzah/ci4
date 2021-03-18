@@ -34,6 +34,8 @@ class FilmManagement extends BaseController{
             $films = new FilmModel();
 
             $validation = $films->createFilms($this->request->getPost());
+
+            dd($validation);
         }
     }
 }

@@ -124,7 +124,7 @@ class FilmModel extends Model
     // ];
 
     if($this->save($data)){
-      return true;
+      return $this->getInsertID();
     }else{
       return $this->errors();
     }
