@@ -10,7 +10,9 @@ class FilmModel extends Model
     protected $table      = 'film';
     protected $primaryKey = 'film_id';
     protected $allowedFields = ['title','description','language_id','release_year','rating'];
-
+    protected $useTimestamps = true;
+    protected $createdField = 'created_at';
+    protected $updatedField = 'updated_at';
     // ...
 
     public function get_film(){
