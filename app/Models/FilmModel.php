@@ -96,7 +96,7 @@ class FilmModel extends Model
       }
       //end of orderby
 
-
+      $datamu->where(['deleted_at' => NULL]);
 
       $datamu->limit($length,$start);
   
