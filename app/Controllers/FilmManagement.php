@@ -96,6 +96,33 @@ class FilmManagement extends BaseController{
             // dd($validation);
         }
     }
+
+    public function delete($id){
+        
+            // dd($this->request->getPost());
+            //$this->request->getPost() -> $_POST
+
+            $films = new FilmModel();
+
+            if($film->find($id)){
+                //berjaya
+                $film->delete($id);
+
+                session()->setFlashdata('message','Deleted Succesfully');
+                session()->setFlashdata('alert-class','alert-success');
+
+            }else{
+                //x berjaya
+                session()->setFlashdata('message','Record not found');
+                session()->setFlashdata('alert-class','alert-danger');
+
+            }
+
+            return redirect()->route('film-management');
+
+
+            // dd($validation);
+    }
 }
 
 ?>
