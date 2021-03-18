@@ -54,6 +54,15 @@ class FilmManagement extends BaseController{
             // dd($validation);
         }
     }
+
+    public function edit($id){
+        $data['language'] = get_language();
+        $data['rating'] = get_rating();
+        $data['validation'] = session('validation');
+
+        $output['content'] = view('film-management/edit',$data);
+        return view('main',$output);
+    }
 }
 
 ?>
