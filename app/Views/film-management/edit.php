@@ -8,7 +8,12 @@ echo form_hidden('film_id',$film['film_id']);
     ?>
     <div class="col-sm-10">
       <?php
-        $value = $film['title'];
+
+        if(!empty(old('title'))){
+          $value = old('title');
+        }else{
+          $value = $film['title'];
+        }
         $valid = isset($validation['title'])? "is-invalid" : "";
         echo form_input('title',"$value",['class'=>"form-control $valid",'placeholder'=>'Insert title']);
       ?>
@@ -30,7 +35,11 @@ echo form_hidden('film_id',$film['film_id']);
     ?>
     <div class="col-sm-10">
         <?php
-            $value = $film['description'];
+            if(!empty(old('description'))){
+              $value = old('description');
+            }else{
+              $value = $film['description'];
+            }
             $valid = isset($validation['description'])? "is-invalid" : "";
 
             echo form_textarea('description',"$value",['class'=>"form-control $valid",'placeholder'=>'Insert description']);
@@ -52,7 +61,11 @@ echo form_hidden('film_id',$film['film_id']);
     ?>
     <div class="col-sm-10">
         <?php
-            $value = $film['release_year'];
+             if(!empty(old('release_year'))){
+              $value = old('release_year');
+            }else{
+              $value = $film['release_year'];
+            };
             $valid = isset($validation['release_year'])? "is-invalid" : "";
 
             echo form_input('release_year',"$value",['class'=>"form-control $valid",'placeholder'=>'Insert Release Year'],'number');
