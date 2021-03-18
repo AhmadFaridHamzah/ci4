@@ -52,7 +52,7 @@ echo form_open('film-management/store',['class'=>'form-control']);
     ?>
     <div class="col-sm-10">
         <?php
-            echo form_dropdown('rating','','',['class'=>'form-control','placeholder'=>'Insert Rating']);
+            echo form_dropdown('rating',$rating,'',['class'=>'form-control','placeholder'=>'Insert Rating']);
         ?>
     </div>
   </div>

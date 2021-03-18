@@ -20,6 +20,8 @@ class FilmManagement extends BaseController{
 
     public function create(){
         $data['language'] = get_language();
+        $data['rating'] = get_rating();
+
         $output['content'] = view('film-management/create',$data);
         return view('main',$output);
     }
