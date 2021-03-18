@@ -150,5 +150,16 @@ class FilmModel extends Model
     }
   }
 
+  public function updateFilms($data){
+
+    // $data['film_id'] = $data['txt_filmid'];
+
+    if($this->save($data)){
+      return $this->getInsertID();
+    }else{
+      return $this->errors();
+    }
+  }
+
 
 }

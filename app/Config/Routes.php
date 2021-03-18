@@ -59,6 +59,7 @@ $routes->get('film-management','FilmManagement::index');
 $routes->get('film-management/create','FilmManagement::create');
 $routes->post('film-management/store','FilmManagement::store');
 $routes->get('film-management/edit/(:num)','FilmManagement::edit/$1');
+$routes->post('film-management/update/(:num)','FilmManagement::update/$1');
 //(:any)- semua value terima
 //(:num) - nombor sahaja
 //(:alpha) - alphabet sahaja

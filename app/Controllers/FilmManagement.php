@@ -68,6 +68,34 @@ class FilmManagement extends BaseController{
         $output['content'] = view('film-management/edit',$data);
         return view('main',$output);
     }
+
+    public function update($id){
+        if($this->request->getMethod() === 'post'){
+            // dd($this->request->getPost());
+            //$this->request->getPost() -> $_POST
+
+            $films = new FilmModel();
+
+            $validation = $films->updateFilms($this->request->getPost());
+
+            if(is_int($validation)){
+                //berjaya
+
+                session()->setFlashdata('message','Update Succesfully');
+                session()->setFlashdata('alert-class','alert-success');
+
+                return redirect()->route('film-management');
+
+            }else{
+                //x berjaya
+                $errors = $validation;
+
+                return redirect()->to('/film-management/edit/'.$id)->withInput()->with('validation',$errors);
+            }
+
+            // dd($validation);
+        }
+    }
 }
 
 ?>

@@ -1,5 +1,6 @@
 <?php
-echo form_open('film-management/store',['class'=>'form-control']);
+echo form_open("film-management/update/".$film['film_id'],['class'=>'form-control']);
+echo form_hidden('film_id',$film['film_id']);
 ?>
   <div class="form-group row">
     <?php 
@@ -91,7 +92,7 @@ echo form_open('film-management/store',['class'=>'form-control']);
   
   <div class="form-group row">
     <div class="col-sm-10">
-      <button type="submit" class="btn btn-primary">Create</button>
+      <button type="submit" class="btn btn-primary">Update</button>
     </div>
   </div>
 <?php
