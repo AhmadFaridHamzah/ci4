@@ -104,9 +104,9 @@ class FilmManagement extends BaseController{
 
             $films = new FilmModel();
 
-            if($film->find($id)){
+            if($films->find($id)){
                 //berjaya
-                $film->delete($id);
+                $films->delete($id);
 
                 session()->setFlashdata('message','Deleted Succesfully');
                 session()->setFlashdata('alert-class','alert-success');
