@@ -15,6 +15,22 @@ class FilmModel extends Model
     protected $updatedField = 'updated_at';
     // ...
 
+    protected $validationRules = [
+        'title'=>'required|max_length[50]',
+        'description' => 'required',
+        'release_year'=> 'required'
+    ];
+
+    protected $validationMessages = [
+        'title' =>[
+          'required' => 'Wajib di isi'
+        ],
+        'description' =>[
+          'required' => 'Wajib di isi'
+        ],
+
+    ];
+
     public function get_film(){
 
      

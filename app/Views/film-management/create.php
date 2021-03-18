@@ -7,7 +7,8 @@ echo form_open('film-management/store',['class'=>'form-control']);
     ?>
     <div class="col-sm-10">
       <?php
-        echo form_input('title','',['class'=>'form-control','placeholder'=>'Insert title']);
+        $old = old('title');
+        echo form_input('title',"$old",['class'=>'form-control','placeholder'=>'Insert title']);
       ?>
 
     </div>
@@ -19,7 +20,9 @@ echo form_open('film-management/store',['class'=>'form-control']);
     ?>
     <div class="col-sm-10">
         <?php
-            echo form_textarea('description','',['class'=>'form-control','placeholder'=>'Insert description']);
+            $old = old('description');
+
+            echo form_textarea('description',"$old",['class'=>'form-control','placeholder'=>'Insert description']);
         ?>
     </div>
   </div>
@@ -30,7 +33,9 @@ echo form_open('film-management/store',['class'=>'form-control']);
     ?>
     <div class="col-sm-10">
         <?php
-            echo form_input('release_year','',['class'=>'form-control','placeholder'=>'Insert Release Year'],'number');
+            $old = old('release_year');
+
+            echo form_input('release_year',"$old",['class'=>'form-control','placeholder'=>'Insert Release Year'],'number');
         ?>
     </div>
   </div>

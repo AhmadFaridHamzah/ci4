@@ -21,6 +21,7 @@ class FilmManagement extends BaseController{
     public function create(){
         $data['language'] = get_language();
         $data['rating'] = get_rating();
+        $data['validation'] = session('validation');
 
         $output['content'] = view('film-management/create',$data);
         return view('main',$output);
@@ -35,7 +36,7 @@ class FilmManagement extends BaseController{
 
             $validation = $films->createFilms($this->request->getPost());
 
-            if(!empty($validation)){
+            if(is_int($validation)){
                 //berjaya
 
                 session()->setFlashdata('message','Added Succesfully');
@@ -45,7 +46,9 @@ class FilmManagement extends BaseController{
 
             }else{
                 //x berjaya
+                $errors = $validation;
 
+                return redirect()->route('film-management/create')->withInput()->with('validation',$errors);
             }
 
             // dd($validation);
