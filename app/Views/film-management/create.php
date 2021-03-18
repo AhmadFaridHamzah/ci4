@@ -8,8 +8,17 @@ echo form_open('film-management/store',['class'=>'form-control']);
     <div class="col-sm-10">
       <?php
         $old = old('title');
-        echo form_input('title',"$old",['class'=>'form-control','placeholder'=>'Insert title']);
+        $valid = isset($validation['title'])? "is-invalid" : "";
+        echo form_input('title',"$old",['class'=>"form-control $valid",'placeholder'=>'Insert title']);
       ?>
+
+      <?php if(isset($validation['title'])) { ?>
+
+        <div class="invalid-feedback d-block">
+            <?= $validation['title'] ?>
+        </div>
+
+      <?php } ?>
 
     </div>
   </div>
