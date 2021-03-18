@@ -27,7 +27,14 @@ class FilmManagement extends BaseController{
     }
 
     public function store(){
-        dd($_POST);
+        if($this->request->getMethod() === 'post'){
+            // dd($this->request->getPost());
+            //$this->request->getPost() -> $_POST
+
+            $films = new FilmModel();
+
+            $validation = $films->createFilms($this->request->getPost());
+        }
     }
 }
 

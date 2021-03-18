@@ -116,5 +116,18 @@ class FilmModel extends Model
     
   }
 
+  public function createFilms($data){
+
+    // $data = [
+    //   'title' => $data['txt_title'];
+    // ];
+
+    if($this->save($data)){
+      return true;
+    }else{
+      return $this->errors();
+    }
+  }
+
 
 }
