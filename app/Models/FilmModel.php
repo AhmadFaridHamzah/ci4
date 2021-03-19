@@ -111,7 +111,7 @@ class FilmModel extends Model
    //     $sql = $datamu->getCompiledSelect();
 // echo $sql;
      
-     $datamu2= $datamu->asObject()->find(false);
+     $datamu2= $datamu->asObject()->find();
 
        $data=array();
     
