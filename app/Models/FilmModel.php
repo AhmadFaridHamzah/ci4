@@ -65,20 +65,25 @@ class FilmModel extends Model
       // echo '</pre>';
 
       $datamu=  $this
-      ->select('film.film_id,film.title,film.description,film.release_year,l.name,film.rating')
+      ->select('film.film_id,film.title,film.description,film.release_year,l.name language_name,film.rating')
       ->join('language as l','l.language_id=film.language_id','left');
-      
+     
 
+      if(!empty($search['value'])){
+      $datamu->orGroupStart();
       foreach($columns as $rcol){
 
         if(!empty($search['value'])){
          
           if(!empty($rcol['name'])){
+         
           $datamu->orLike($rcol['name'],$search['value'],'both');
           }//end of !empty($rcol['name']
        
         }//end of if empty($search['value']
       } //end of foreach columns
+      $datamu->groupEnd();
+    }
 
 
       $countresult=$datamu->countAllResults(false);
@@ -96,12 +101,17 @@ class FilmModel extends Model
       }
       //end of orderby
 
-      $datamu->where(['deleted_at' => NULL]);
+      // $datamu->where(['deleted_at' => NULL]);
+
+//       $sql = $datamu->getCompiledSelect();
+// echo $sql;
+
 
       $datamu->limit($length,$start);
-  
+   //     $sql = $datamu->getCompiledSelect();
+// echo $sql;
      
-     $datamu2= $datamu->asObject()->find();
+     $datamu2= $datamu->asObject()->find(false);
 
        $data=array();
     
@@ -124,7 +134,7 @@ class FilmModel extends Model
               $row->title,
               $row->description,
               $row->release_year,
-              $row->name,
+              $row->language_name,
               $row->rating,
               $btn
 
